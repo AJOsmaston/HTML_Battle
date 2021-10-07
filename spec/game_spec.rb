@@ -8,14 +8,15 @@ describe Game do
 
   describe "creating game" do
     it "has player 1" do
-      expect(new_game.player1).to eq mittens
+      expect(new_game.player_1).to eq mittens
 
     end
 
     it "has player 2" do
-      expect(new_game.player2).to eq charlotte
+      expect(new_game.player_2).to eq charlotte
 
     end
+  end
       
 
   describe '#attack' do
