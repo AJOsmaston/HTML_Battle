@@ -38,8 +38,6 @@ describe Game do
   describe "#switch_turn" do
     it "should switch turns" do
       new_game.switch_turn
-      puts "SWITCH TURN"
-      puts new_game.current_turn 
       expect(new_game.current_turn).to eq charlotte
     end
   end
