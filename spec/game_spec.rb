@@ -26,10 +26,10 @@ describe Game do
     end
   end
 
-  describe "#current_turn" do
+  describe "#current_player" do
 
     it "display the current turn" do
-      expect(new_game.current_turn).to eq mittens
+      expect(new_game.current_player).to eq mittens
     end
 
     
@@ -38,7 +38,16 @@ describe Game do
   describe "#switch_turn" do
     it "should switch turns" do
       new_game.switch_turn
-      expect(new_game.current_turn).to eq charlotte
+      expect(new_game.current_player).to eq charlotte
     end
   end
+
+  describe "#current_receiver" do
+    it "should give whoever is not currently playing" do
+      expect(new_game.current_receiver).to eq charlotte
+      new_game.switch_turn
+      expect(new_game.current_receiver).to eq mittens
+    end
+  end
+
 end
