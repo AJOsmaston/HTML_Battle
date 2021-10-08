@@ -14,18 +14,23 @@ class Game
   end
 
   def switch_turn
-    @current_player = not_currently_playing
+    @current_player = opposite_player(@current_player)
   end
 
   def current_receiver
-    not_currently_playing
+    opposite_player(@current_player)
   end
 
+  def winner
+    loser = [@player_1, @player_2].select { |player| player.hit_points == 0}.first
+    return opposite_player(loser) if loser
+    nil   
+  end
   private
 
-  def not_currently_playing
+  def opposite_player(player)
     players = [@player_1, @player_2]
-    players.select { |player| player != @current_player }.first
+    players.select { |plr| plr != player }.first
   end
 
 

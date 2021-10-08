@@ -19,4 +19,13 @@ describe Player do
       expect { charlotte.receive_damage }.to change { charlotte.hit_points }.by (-10)
     end
   end
+
+  describe "alive?" do
+    it "should be false if hp reaches 0" do
+      allow(charlotte).to receive(:hit_points).and_return(0)
+      puts "alive?"
+      puts charlotte.hit_points
+      expect(charlotte.alive?).to eq false
+    end
+  end
 end

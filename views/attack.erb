@@ -1,2 +1,6 @@
 <%= @game.current_receiver.name %> attacks <%= @game.current_player.name %>
+<% unless @game.winner %>
 <button><a href='/play'=>OK</a></button>
+<% else %>
+<button><a href="/winner">OK</a></button>
+<% end %>

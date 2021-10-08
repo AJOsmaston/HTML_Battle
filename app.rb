@@ -35,6 +35,11 @@ class Battle < Sinatra::Base
     
   end
 
+  get "/winner" do
+    @game = $game
+    erb(:winner)
+  end
+
   run! if app_file == $0
 end
 

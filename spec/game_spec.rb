@@ -2,8 +2,8 @@ require 'game'
 
 describe Game do
 
-  subject(:mittens) { double(:playerM) }
-  subject(:charlotte) { double(:playerC) }
+  subject(:mittens) { double(:playerM, hit_points: 60) }
+  subject(:charlotte) { double(:playerC, hit_points: 60) }
   subject(:new_game) { Game.new(mittens, charlotte) }
 
   describe "creating game" do
@@ -49,5 +49,21 @@ describe Game do
       expect(new_game.current_receiver).to eq mittens
     end
   end
+
+  describe "#winner" do
+    it "should not return anything when player hp isnt 0" do
+      expect(new_game.winner).to eq nil
+    end
+
+    it "should return winner when a player hits 0 hp" do
+      allow(charlotte).to receive(:hit_points).and_return(0)
+      expect(new_game.winner).to eq mittens
+    end
+  end
+
+
+
+  # context "player hp hits zero" do
+  #   new_game
 
 end
